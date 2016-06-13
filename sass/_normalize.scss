@@ -2,6 +2,8 @@ html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust:     100%;
+	-webkit-font-smoothing: antialiased; // Safari - Fixes the font-weight issue where text is too bold
+	-moz-osx-font-smoothing: grayscale; // Firefox - As above, but for Firefox
 }
 
 body {

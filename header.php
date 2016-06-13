@@ -25,8 +25,9 @@
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'mane-music' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+	<img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.svg" alt="logo" />
 		<div class="site-branding">
-			<?php
+<!-- 			<?php
 			if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<?php else : ?>
@@ -38,7 +39,7 @@
 			if ( $description || is_customize_preview() ) : ?>
 				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 			<?php
-			endif; ?>
+			endif; ?> -->
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">

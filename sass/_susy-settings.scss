@@ -1,0 +1,255 @@
+@import "susy";
+
+// Set Grid
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  container: 71.25rem,
+  global-box-sizing: border-box,
+);
+
+* {
+  box-sizing: border-box;
+}
+
+// Use <div class="container"> to wrap anything
+.container {
+  @include container();
+    // padding-top: 30px;
+}
+
+// Change these values to add padding left and right of the container
+body {
+  padding: 0;
+}
+
+///////////////////////////////////////////////////////
+//
+// Full Width
+//
+///////////////////////////////////////////////////////
+
+.full-width {
+  @include span(12);
+  // background-color: $color__descovy-blue;
+  margin-bottom: 25px;
+}
+
+///////////////////////////////////////////////////////
+//
+// 2 Columns occuping 40% and 60% of the screen
+//
+///////////////////////////////////////////////////////
+
+.left-four {
+  @include span(4);
+  // background-color: $color__descovy-blue;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet-wide) {
+  .left-four {
+    @include span(12);
+  }
+}
+
+.right-eight {
+  @include span(8 last);
+  // background-color: $color__genvoya-orange;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet-wide) {
+  .right-eight {
+    @include span(12);
+  }
+}
+
+///////////////////////////////////////////////////////
+//
+// 2 Columns occuping 60% and 40% of the screen
+//
+///////////////////////////////////////////////////////
+
+.left-eight {
+  @include span(8);
+  // background-color: $color__descovy-blue;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet) {
+  .left-eight {
+    @include span(12);
+  }
+}
+
+.right-four {
+  @include span(4 last);
+  // background-color: $color__genvoya-orange;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet) {
+  .right-four {
+    @include span(12);
+  }
+}
+
+
+///////////////////////////////////////////////////////
+//
+// 2 Columns - 5 and 7
+//
+///////////////////////////////////////////////////////
+
+.left-five {
+  @include span(5);
+  // background-color: $color__descovy-blue;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet-wide) {
+  .left-five {
+    @include span(12);
+  }
+}
+
+.right-seven {
+  @include span(7 last);
+  // background-color: $color__genvoya-orange;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet-wide) {
+  .right-seven {
+    @include span(12);
+  }
+}
+
+
+///////////////////////////////////////////////////////
+//
+// 2 Columns - 7 and 5
+//
+///////////////////////////////////////////////////////
+
+.left-seven {
+  @include span(7);
+  // background-color: $color__descovy-blue;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet-wide) {
+  .left-seven {
+    @include span(12);
+  }
+}
+
+.right-five {
+  @include span(5 last);
+  // background-color: $color__genvoya-orange;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet-wide) {
+  .right-five {
+    @include span(12);
+  }
+}
+
+/////////////////////////////////////////////////////////
+//
+// 2 Columns - 50/50 - breakpoint at 768px (for home_2)
+//
+/////////////////////////////////////////////////////////
+
+.left-50 {
+  @include span(6);
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet) {
+  .left-50 {
+    @include span(12);
+  }
+}
+
+.right-50 {
+  @include span(6 last);
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet) {
+  .right-50 {
+    @include span(12);
+  }
+}
+
+
+/////////////////////////////////////////////////////////
+//
+// 2 Columns - 50/50 - breakpoint at 1054px (for buttons)
+//
+/////////////////////////////////////////////////////////
+
+.left-six {
+  @include span(6);
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 1054px) {
+  .left-six {
+    @include span(12);
+  }
+}
+
+.right-six {
+  @include span(6 last);
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 1054px) {
+  .right-six {
+    @include span(12);
+  }
+}
+
+///////////////////////////////////////////////////////
+//
+// 3 Columns
+//
+///////////////////////////////////////////////////////
+
+.left-third {
+  @include span(4);
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet-wide) {
+  .left-third {
+    @include span(12);
+  }
+}
+
+.middle-third {
+  @include span(4);
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet-wide) {
+  .middle-third {
+    @include span(12);
+  }
+}
+
+.right-third {
+  @include span(4 last);
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: $tablet-wide) {
+  .right-third {
+    @include span(12);
+  }
+}
+

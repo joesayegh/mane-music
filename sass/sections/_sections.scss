@@ -1,0 +1,145 @@
+/*--------------------------------------------------------------
+# Logo
+--------------------------------------------------------------*/
+
+.logo {
+	display: block;
+	height: auto;
+	max-width: 320px;
+	padding: 1.6rem;
+	position: relative;
+}
+
+@media screen and (max-width: 640px) {
+	.logo {
+		display: block;
+		height: auto;
+		margin: auto;
+		padding: 1.75rem;
+	}
+}
+
+
+/*--------------------------------------------------------------
+# Hero Image
+--------------------------------------------------------------*/
+
+.site-header {
+    background: #10202f;
+}
+
+.hero-image {
+    width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+    .hero-image {
+        margin-top: -32px;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Social Media Section
+--------------------------------------------------------------*/
+
+.social-media-section {
+    background-color: #000;
+    text-align: center;
+    margin-top: -32px; //removes gap between social icons and submit button
+    padding-top: 32px; //adds spacing for the gap removed with negative margin
+}
+
+/*--- Spacing between Icons ---*/
+
+i {
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    color: #fff;
+}
+
+i a {
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    color: #fff;
+}
+
+i a:hover {
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    color: #d1bea8;
+}
+// /*--- Official colours of Social Media Icons. ---*/
+
+.social-media-section .fa-facebook-official:hover { color: #d1bea8; }
+.social-media-section .fa-twitter:hover {   color: #d1bea8; }
+.social-media-section .fa-instagram:hover { color: #d1bea8; }
+.social-media-section .fa-youtube-play:hover { color: #d1bea8; }
+.social-media-section .fa-pinterest:hover { color: #d1bea8; }
+.social-media-section .fa-google-plus:hover { color: #d1bea8; }
+
+
+// Fixed Width Icons
+// -------------------------
+
+.fa-fw {
+    width: 2.25em !important;
+    text-align: center;
+}
+
+.social-media-section i {
+    font-size: 48px;
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    .social-media-section i {
+        font-size: 24px;
+    }
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+
+.back-to-top {
+    background-color: #000;
+    text-align: center;
+    font-size: 8px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: -32px; //removes gap between back to top and social icons
+    padding-top: 32px; //adds spacing for the gap removed with negative margin
+}
+
+.back-to-top a {
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    color: #fff;
+    text-decoration: none;
+}
+
+.back-to-top a:hover {
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    color: #d1bea8 !important;
+}
+
+.fa-angle-up:hover,
+.fa-angle-down:hover {
+    color: #d1bea8;
+}
