@@ -117,12 +117,18 @@ function mane_music_scripts() {
 	wp_enqueue_style( 'mane-music-style', get_stylesheet_uri() );
 
 // FontAwesome
-	wp_enqueue_style( 'rullos-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+	wp_enqueue_style( 'mane-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
 
-// Navigation
-	wp_enqueue_script( 'mane-music-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+// Google Fonts
+	wp_enqueue_style( 'mane-google-fonts', 'https://fonts.googleapis.com/css?family=Oswald:400,300,700');
 
-	wp_enqueue_script( 'mane-music-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+// ALL SCRIPTS
+	wp_enqueue_script( 'mane-music-global-min', get_template_directory_uri() . '/js/global.min.js', array(), '20151215', true );
+
+// Jquery
+    wp_enqueue_script( 'mane-music-jQuery', '//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js', false);
+
+	// wp_enqueue_script( 'mane-music-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -154,3 +160,78 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+/**
+ * Remove Query String from Static Resources
+ **/
+
+function remove_cssjs_ver( $src ) {
+ if( strpos( $src, '?ver=' ) )
+ $src = remove_query_arg( 'ver', $src );
+ return $src;
+}
+add_filter( 'style_loader_src', 'remove_cssjs_ver', 10, 2 );
+add_filter( 'script_loader_src', 'remove_cssjs_ver', 10, 2 );
+
+
+/**
+ * Custom Login Screen
+ */
+
+function my_login_logo() { ?>
+    <style type="text/css">
+        .login h1 a {
+        	background-image: url("<?php bloginfo(template_url);?>/img/logo.svg") !important;
+			background-position: center top !important;
+			background-repeat: no-repeat !important;
+			background-size: 250px auto !important;
+			display: block !important;
+			line-height: 1.3em !important;
+			outline: 0 none !important;
+			padding: 5px !important;
+			text-indent: -9999px !important;
+			width: 275px !important;
+		}
+		.login form {
+		    background: none !important;
+		    box-shadow: none !important;
+		    margin-left: 0 !important;
+		    margin-top: 20px !important;
+		    padding: 18px 24px !important;
+		}
+		.login form .input, .login input[type="text"] {
+		    font-size: 14px !important;
+		    margin: 2px 6px 16px 0 !important;
+		    padding: 6px !important;
+		    width: 100% !important;
+		}
+		.login label {
+			color: #fff !important;
+/*			color: #48c0e0 !important;*/
+			font-size: 14px !important;
+		}
+		#login_error, .login .message {
+			margin: 25px !important;
+			max-width: 275px !important;
+			padding: 12px !important;
+		}
+		.login #backtoblog a, .login #nav a, .login h1 a {
+			color: #fff !important;
+			text-decoration: none !important;
+		}
+		#login {
+		    margin: auto !important;
+		    padding: 10% 0 0 !important;
+		    width: 320px !important;
+		}
+		body {
+		    background: #10202f none repeat scroll 0 0 !important;
+		    color: #444 !important;
+		    line-height: 1.4em !important;
+		    min-width: 0 !important;
+		}
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+?>

@@ -1,0 +1,9 @@
+// IF PAGES DON'T REQUIRE THEIR PAGE TITLE TO BE DISPLAYED, ADD THEM HERE
+
+// HIDE TITLE ON PAGE XXX
+.page-id-2 h1.entry-title {
+    display: none !important;
+    font-size: 0 !important;
+    letter-spacing: 0 !important;
+    line-height: 0 !important;
+}

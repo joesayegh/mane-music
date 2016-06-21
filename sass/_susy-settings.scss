@@ -159,7 +159,7 @@ body {
 
 /////////////////////////////////////////////////////////
 //
-// 2 Columns - 50/50 - breakpoint at 768px (for home_2)
+// 2 Columns - 50/50 - breakpoint at 1024px
 //
 /////////////////////////////////////////////////////////
 
@@ -168,7 +168,7 @@ body {
   margin-bottom: 25px;
 }
 
-@media screen and (max-width: $tablet) {
+@media screen and (max-width: $desktop) {
   .left-50 {
     @include span(12);
   }
@@ -179,7 +179,7 @@ body {
   margin-bottom: 25px;
 }
 
-@media screen and (max-width: $tablet) {
+@media screen and (max-width: $desktop) {
   .right-50 {
     @include span(12);
   }

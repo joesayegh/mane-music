@@ -16,6 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<a href="#back-to-top" id="back-to-top"><!-- back-to-top-button  -->
 
 <?php wp_head(); ?>
 </head>
@@ -25,7 +26,11 @@
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'mane-music' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-	<img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.svg" alt="logo" />
+
+		<div class="container">
+
+			<img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.svg" alt="logo" />
+
 		<div class="site-branding">
 <!-- 			<?php
 			if ( is_front_page() && is_home() ) : ?>
@@ -42,10 +47,10 @@
 			endif; ?> -->
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'mane-music' ); ?></button>
+		<nav id="menu" class="main-navigation slicknav" role="navigation">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

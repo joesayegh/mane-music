@@ -6,36 +6,53 @@
 	display: block;
 	height: auto;
 	max-width: 320px;
-	padding: 1.6rem;
+	padding: 25px;
 	position: relative;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 880px) {
 	.logo {
-		display: block;
-		height: auto;
-		margin: auto;
-		padding: 1.75rem;
+		max-width: 275px;
 	}
 }
 
+@media screen and (max-width: $tablet-wide) {
+    .logo {
+        max-width: 200px;
+        margin-top: -100px;
+        padding: 65px 0 0 25px;
+        position: absolute;
+        top: 50px;
+    }
+}
+
+@media screen and (max-width: $mobile-wide) {
+    .logo {
+        max-width: 135px;
+        margin-top: -100px;
+        padding: 60px 0 0 20px;
+        position: absolute;
+        top: 50px;
+    }
+}
 
 /*--------------------------------------------------------------
 # Hero Image
 --------------------------------------------------------------*/
 
 .site-header {
-    background: #10202f;
+    background: $color_dark_blue;
+}
+
+#hero-image {
+    background: $color_dark_blue;
 }
 
 .hero-image {
+    margin: -25px auto;
+    padding-bottom: 25px;
     width: 100%;
-}
-
-@media screen and (max-width: 640px) {
-    .hero-image {
-        margin-top: -32px;
-    }
+    max-width: 1280px;
 }
 
 
@@ -46,64 +63,55 @@
 .social-media-section {
     background-color: #000;
     text-align: center;
-    margin-top: -32px; //removes gap between social icons and submit button
-    padding-top: 32px; //adds spacing for the gap removed with negative margin
+    margin-top: -32px;
+    padding: 32px 0;
 }
 
 /*--- Spacing between Icons ---*/
 
 i {
-    -moz-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
-    -webkit-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    transition: $hover__fast;
     color: #fff;
 }
 
 i a {
-    -moz-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
-    -webkit-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    transition: $hover__fast;
     color: #fff;
 }
 
 i a:hover {
-    -moz-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
-    -webkit-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
-    color: #d1bea8;
+    transition: $hover__fast;
+    color: $color_red;
 }
 // /*--- Official colours of Social Media Icons. ---*/
 
-.social-media-section .fa-facebook-official:hover { color: #d1bea8; }
-.social-media-section .fa-twitter:hover {   color: #d1bea8; }
-.social-media-section .fa-instagram:hover { color: #d1bea8; }
-.social-media-section .fa-youtube-play:hover { color: #d1bea8; }
-.social-media-section .fa-pinterest:hover { color: #d1bea8; }
-.social-media-section .fa-google-plus:hover { color: #d1bea8; }
+.social-media-section .fa-facebook-official:hover { color: #3b5998; }
+.social-media-section .fa-twitter:hover {   color: #55acee; }
+.social-media-section .fa-apple:hover { color: #999; }
+.social-media-section .fa-spotify:hover { color: #00e461; }
+.social-media-section .fa-soundcloud:hover { color: #FF6600; }
+.social-media-section .fa-youtube:hover { color: #bb0000; }
+.social-media-section .fa-instagram:hover { color: #125688; }
 
 
 // Fixed Width Icons
 // -------------------------
 
 .fa-fw {
-    width: 2.25em !important;
-    text-align: center;
+    width: 80px !important;
 }
 
 .social-media-section i {
-    font-size: 48px;
-    -moz-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
-    -webkit-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    font-size: 36px;
+    transition: $hover__fast;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $tablet-wide) {
     .social-media-section i {
         font-size: 24px;
+    }
+    .fa-fw {
+        width: 40px !important;
     }
 }
 
@@ -114,32 +122,27 @@ i a:hover {
 .back-to-top {
     background-color: #000;
     text-align: center;
-    font-size: 8px;
-    font-size: 0.8rem;
+    // font-size: 8px;
+    // font-size: 0.8rem;
     text-transform: uppercase;
     text-decoration: none;
-    margin-top: -32px; //removes gap between back to top and social icons
-    padding-top: 32px; //adds spacing for the gap removed with negative margin
+    // margin-top: -32px; //removes gap between back to top and social icons
+    // padding-top: 32px; //adds spacing for the gap removed with negative margin
 }
 
 .back-to-top a {
-    -moz-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
-    -webkit-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    transition: $hover__fast;
     color: #fff;
     text-decoration: none;
 }
 
 .back-to-top a:hover {
-    -moz-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
-    -webkit-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
-    color: #d1bea8 !important;
+    transition: $hover__fast;
+    color: $color_red !important;
 }
 
 .fa-angle-up:hover,
 .fa-angle-down:hover {
-    color: #d1bea8;
+    color: $color_red;
 }
+
