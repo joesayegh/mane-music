@@ -1,0 +1,39 @@
+/*--------------------------------------------------------------
+# Socket Section
+--------------------------------------------------------------*/
+
+/* --- "Widgets" ---*/
+
+.site-footer {
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    font-family: $font__main;
+    font-size: 13px;
+    background-color: #000;
+    text-transform: uppercase;
+    // margin-top: -32px; //removes gap between copyright and back to top
+    padding-top: 20px; //adds spacing for the gap removed with negative margin
+    padding-bottom: 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.site-footer a {
+    text-decoration: none;
+}
+
+/*--- Site Info aka The Socket ---*/
+
+.site-info a {
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    color: #fff !important;
+}
+
+.site-info a:hover {
+    color: $color_red !important;
+}

@@ -2,12 +2,17 @@ html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust:     100%;
-	-webkit-font-smoothing: antialiased; // Safari - Fixes the font-weight issue where text is too bold
-	-moz-osx-font-smoothing: grayscale; // Firefox - As above, but for Firefox
+	-webkit-font-smoothing:   antialiased; // Safari - Fixes the font-weight issue where text is too bold
+	-moz-osx-font-smoothing:  grayscale; // Firefox - As above, but for Firefox
 }
 
 body {
 	margin: 0;
+}
+
+body * {
+	// Mobile Safari - Fixes the blinking effect when a link has been hit
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 article,
@@ -44,6 +49,8 @@ template {
 }
 
 a {
+	// Mobile Safari - Fixes the blinking effect when a link has been hit
+    -webkit-tap-highlight-color: transparent;
 	background-color: transparent;
 }
 
@@ -66,8 +73,8 @@ dfn {
 }
 
 h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
+	// font-size: 2em;
+	// margin: 0.67em 0;
 }
 
 mark {
@@ -113,6 +120,8 @@ hr {
 }
 
 pre {
+	white-space:pre-wrap;
+	word-wrap:break-word;
 	overflow: auto;
 }
 

@@ -1,9 +1,29 @@
+// MASTHEAD
+
+#masthead {
+	// background-color: $color__brand-green;
+}
+
+
+// REMOVES THE GAP UNDER THE MASTHEAD
+div#primary {
+    margin-top: -50px;
+}
+
+
+
+
+
 .main-navigation {
 	position: relative;
-	display: block;
+	// display: block;
 	text-transform: uppercase;
 	float: right;
 	margin: -80px 25px;
+
+	@media screen and (max-width: 880px) {
+		margin: -70px 25px;
+	}
 
 	ul {
 		list-style: none;
@@ -14,7 +34,7 @@
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 			float: left;
 			position: absolute;
-			top: 1.5em;
+			// top: 1.5em;
 			left: -999em;
 			z-index: 99999;
 
@@ -60,14 +80,13 @@
 	}
 
 	a {
-		display: block;
-		padding: 0 10px 20px 10px;
+		// display: block;
+		padding: 0 10px 0 10px;
 		text-decoration: none;
 		font-family: 'Oswald', sans-serif;
-		font-size: 15px;
-		font-size: 1.5rem;
+		font-size: 20px;
+		line-height: 24px;
 		font-weight: 300;
-		line-height: 1.6em;
 		color: #fff;
 		text-shadow: 2px 2px #000;
 		transition: $hover__fast;

@@ -125,10 +125,10 @@ function mane_music_scripts() {
 // ALL SCRIPTS
 	wp_enqueue_script( 'mane-music-global-min', get_template_directory_uri() . '/js/global.min.js', array(), '20151215', true );
 
-// Jquery
-    wp_enqueue_script( 'mane-music-jQuery', '//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js', false);
-
-	// wp_enqueue_script( 'mane-music-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+// DEREGISTER DEFAULT WP-JQUERY AND ADD JQUERY AND JQUERY UI FROM GOOGLE CDN
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', ('https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'), false, '2.2.4');
+	wp_enqueue_script('jquery');
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -162,22 +162,23 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 
-/**
- * Remove Query String from Static Resources
- **/
+//////////////////////////////////////
+// CHANGE 'HOWDY' WHEN LOGGED IN
+//////////////////////////////////////
 
-function remove_cssjs_ver( $src ) {
- if( strpos( $src, '?ver=' ) )
- $src = remove_query_arg( 'ver', $src );
- return $src;
+function replace_howdy( $wp_admin_bar ) {
+	$my_account = $wp_admin_bar->get_node('my-account');
+	$newtitle = str_replace('Howdy,', 'Logged in as', $my_account->title);
+	$wp_admin_bar->add_node(array(
+		'id' => 'my-account',
+		'title' => $newtitle,
+	));
 }
-add_filter( 'style_loader_src', 'remove_cssjs_ver', 10, 2 );
-add_filter( 'script_loader_src', 'remove_cssjs_ver', 10, 2 );
+add_filter('admin_bar_menu', 'replace_howdy', 25);
 
-
-/**
- * Custom Login Screen
- */
+//////////////////////////
+// CUSTOM LOGIN SCREEN
+//////////////////////////
 
 function my_login_logo() { ?>
     <style type="text/css">
@@ -226,7 +227,7 @@ function my_login_logo() { ?>
 		    width: 320px !important;
 		}
 		body {
-		    background: #10202f none repeat scroll 0 0 !important;
+		    background: #000033 none repeat scroll 0 0 !important;
 		    color: #444 !important;
 		    line-height: 1.4em !important;
 		    min-width: 0 !important;
@@ -234,4 +235,64 @@ function my_login_logo() { ?>
     </style>
 <?php }
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
-?>
+
+
+////////////////////////////////////////////////
+// REMOVE QUERY STRING FROM STATIC RESOURCES
+////////////////////////////////////////////////
+
+function remove_cssjs_ver( $src ) {
+ if( strpos( $src, '?ver=' ) )
+ $src = remove_query_arg( 'ver', $src );
+ return $src;
+}
+add_filter( 'style_loader_src', 'remove_cssjs_ver', 10, 2 );
+add_filter( 'script_loader_src', 'remove_cssjs_ver', 10, 2 );
+
+
+//////////////////////////////////////////////////////////
+// STOP WORDPRESS GENERATING OTHER SIZED IMAGES ON UPLOAD
+//////////////////////////////////////////////////////////
+
+function add_image_insert_override( $sizes ){
+	unset( $sizes[ 'thumbnail' ]);
+	unset( $sizes[ 'medium' ]);
+	unset( $sizes[ 'medium_large' ] );
+	unset( $sizes[ 'large' ]);
+	unset( $sizes[ 'full' ] );
+	return $sizes;
+}
+add_filter( 'intermediate_image_sizes_advanced', 'add_image_insert_override' );
+
+////////////////////////////////////////////////
+// DISABLE WORDPRESS FROM ADDING <P> TAGS
+// https://codex.wordpress.org/Function_Reference/wpautop#Disabling_the_filter
+////////////////////////////////////////////////
+
+// remove_filter( 'the_content', 'wpautop' );
+// remove_filter( 'the_excerpt', 'wpautop' );
+
+////////////////////////////////////////////////
+// REMOVE WP-EMOJI-RELEASE.MIN.JS
+////////////////////////////////////////////////
+
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+
+////////////////////////////////////////////////
+// REMOVE WP-EMBED.MIN.JS
+////////////////////////////////////////////////
+function stop_loading_wp_embed() {
+	if (!is_admin()) {
+		wp_deregister_script('wp-embed');
+	}
+}
+add_action('init', 'stop_loading_wp_embed');
+
+
+//////////////////////////////////////
+// REMOVE WP META BOX
+//////////////////////////////////////
+
+add_filter('acf/settings/remove_wp_meta_box', '__return_true');

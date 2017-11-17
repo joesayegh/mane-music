@@ -3,19 +3,14 @@
 // Set Grid
 $susy: (
   columns: 12,
-  gutters: 1/4,
-  container: 71.25rem,
+  gutters: 0.75,
+  container: 1280px,
   global-box-sizing: border-box,
+  // debug: (image: show)
 );
 
 * {
   box-sizing: border-box;
-}
-
-// Use <div class="container"> to wrap anything
-.container {
-  @include container();
-    // padding-top: 30px;
 }
 
 // Change these values to add padding left and right of the container
@@ -23,233 +18,477 @@ body {
   padding: 0;
 }
 
-///////////////////////////////////////////////////////
+.container {
+  @include container();
+    padding-left: 40px;
+    padding-right: 40px;
+
+    @media screen and (max-width: $tablet-wide) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+}
+
+
+/////////////////////////////////////////////////////////
 //
-// Full Width
+// 2 Columns (Equal) Breakpoint ($tablet-wide)
 //
-///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 
-.full-width {
-  @include span(12);
-  // background-color: $color__descovy-blue;
-  margin-bottom: 25px;
+.first-2 {
+  @include span(6);
+  clear: both;
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12);
+    }
 }
 
-///////////////////////////////////////////////////////
+.second-2 {
+  @include span(6 last);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12 last);
+    }
+}
+
+/////////////////////////////////////////////////////////
 //
-// 2 Columns occuping 40% and 60% of the screen
+// 2 Columns 25/75 Breakpoint ($tablet-wide)
 //
-///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 
-.left-four {
-  @include span(4);
-  // background-color: $color__descovy-blue;
-  margin-bottom: 25px;
+.first-25 {
+  @include span(3);
+  clear: both;
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12);
+    }
 }
 
-@media screen and (max-width: $tablet-wide) {
-  .left-four {
-    @include span(12);
-  }
+.second-75 {
+  @include span(9 last);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12 last);
+    }
 }
 
-.right-eight {
-  @include span(8 last);
-  // background-color: $color__genvoya-orange;
-  margin-bottom: 25px;
-}
-
-@media screen and (max-width: $tablet-wide) {
-  .right-eight {
-    @include span(12);
-  }
-}
-
-///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 //
-// 2 Columns occuping 60% and 40% of the screen
+// 2 Columns 75/25 Breakpoint ($tablet-wide)
 //
-///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 
-.left-eight {
-  @include span(8);
-  // background-color: $color__descovy-blue;
-  margin-bottom: 25px;
+.first-75 {
+  @include span(9);
+  clear: both;
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12);
+    }
 }
 
-@media screen and (max-width: $tablet) {
-  .left-eight {
-    @include span(12);
-  }
+.second-25 {
+  @include span(3 last);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12 last);
+    }
 }
 
-.right-four {
-  @include span(4 last);
-  // background-color: $color__genvoya-orange;
-  margin-bottom: 25px;
-}
-
-@media screen and (max-width: $tablet) {
-  .right-four {
-    @include span(12);
-  }
-}
-
-
-///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 //
-// 2 Columns - 5 and 7
+// 2 Columns 5/7 Breakpoint ($tablet-wide)
 //
-///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 
-.left-five {
+.first-five {
   @include span(5);
-  // background-color: $color__descovy-blue;
-  margin-bottom: 25px;
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12);
+    }
 }
 
-@media screen and (max-width: $tablet-wide) {
-  .left-five {
-    @include span(12);
-  }
-}
-
-.right-seven {
+.second-seven {
   @include span(7 last);
-  // background-color: $color__genvoya-orange;
-  margin-bottom: 25px;
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12 last);
+    }
 }
 
-@media screen and (max-width: $tablet-wide) {
-  .right-seven {
-    @include span(12);
-  }
-}
-
-
-///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 //
-// 2 Columns - 7 and 5
+// 2 Columns 7/5 Breakpoint ($tablet-wide)
 //
-///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 
-.left-seven {
+.first-seven {
   @include span(7);
-  // background-color: $color__descovy-blue;
-  margin-bottom: 25px;
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12);
+    }
 }
 
-@media screen and (max-width: $tablet-wide) {
-  .left-seven {
-    @include span(12);
-  }
-}
-
-.right-five {
+.second-five {
   @include span(5 last);
-  // background-color: $color__genvoya-orange;
-  margin-bottom: 25px;
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12 last);
+    }
 }
 
-@media screen and (max-width: $tablet-wide) {
-  .right-five {
-    @include span(12);
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////
+//
+// 4 COLUMNS BECOME 3 BECOME 2
+//
+///////////////////////////////////////////////////////////////
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 }
 
-/////////////////////////////////////////////////////////
-//
-// 2 Columns - 50/50 - breakpoint at 1024px
-//
-/////////////////////////////////////////////////////////
+// section {
+//   @extend %clearfix;
+// }
 
-.left-50 {
-  @include span(6);
-  margin-bottom: 25px;
+.press-grid {
+  @extend %clearfix;
 }
 
-@media screen and (max-width: $desktop) {
-  .left-50 {
-    @include span(12);
+.article__item {
+  @include gallery(3);
+  margin-bottom: gutter();
+
+  @media (max-width: 1023px) {
+    @include gallery(4);
   }
-}
 
-.right-50 {
-  @include span(6 last);
-  margin-bottom: 25px;
-}
-
-@media screen and (max-width: $desktop) {
-  .right-50 {
-    @include span(12);
+  @media (max-width: 767px) {
+    @include gallery(6);
   }
+
+  // @media (max-width: 540px) {
+  //   @include gallery(12 last);
+
+  //   &:nth-last-child(1n+1) {
+  //     clear: both;
+  //   }
+  // }
+
 }
 
 
-/////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////
 //
-// 2 Columns - 50/50 - breakpoint at 1054px (for buttons)
+// 3 Columns (Equal)
 //
-/////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 
-.left-six {
-  @include span(6);
-  margin-bottom: 25px;
-}
-
-@media screen and (max-width: 1054px) {
-  .left-six {
-    @include span(12);
-  }
-}
-
-.right-six {
-  @include span(6 last);
-  margin-bottom: 25px;
-}
-
-@media screen and (max-width: 1054px) {
-  .right-six {
-    @include span(12);
-  }
-}
-
-///////////////////////////////////////////////////////
-//
-// 3 Columns
-//
-///////////////////////////////////////////////////////
-
-.left-third {
+.first-3 {
   @include span(4);
-  margin-bottom: 25px;
 }
 
-@media screen and (max-width: $tablet-wide) {
-  .left-third {
-    @include span(12);
-  }
-}
-
-.middle-third {
+.second-3 {
   @include span(4);
-  margin-bottom: 25px;
 }
 
-@media screen and (max-width: $tablet-wide) {
-  .middle-third {
-    @include span(12);
-  }
-}
-
-.right-third {
+.third-3 {
   @include span(4 last);
-  margin-bottom: 25px;
 }
 
-@media screen and (max-width: $tablet-wide) {
-  .right-third {
-    @include span(12);
+///////////////////////////////////////////////////////////////
+//
+// 3 Columns (Equal) Breakpoint $tablet-wide
+//
+///////////////////////////////////////////////////////////////
+
+.thirds-1 {
+  clear: left;
+  @include span(4);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12);
+    }
+}
+
+.thirds-2 {
+  @include span(4);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12);
+    }
+}
+
+.thirds-3 {
+  @include span(4 last);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(12 last);
+    }
+}
+
+
+///////////////////////////////////////////////////////////////
+//
+// Four Columns (Equal)
+//
+///////////////////////////////////////////////////////////////
+
+.quarter-1 {
+  @include span(3);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(6);
+    }
+}
+
+.quarter-2 {
+  @include span(3);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(6 last);
+    }
+}
+
+.quarter-3 {
+  @include span(3);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(6);
+    }
+}
+
+
+.quarter-4 {
+  clear: right;
+  @include span(3 last);
+    @media screen and (max-width: $tablet-wide) {
+      @include span(6 last);
+    }
+}
+
+
+///////////////////////////////////////////////////////////////
+//
+// COLUMNS (MUSIC SECTION + VIDEO SECTION)
+//
+///////////////////////////////////////////////////////////////
+
+ul.columns {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.half {
+  @include span(6);
+  margin-bottom: gutter();
+
+  &:nth-last-child(odd) {
+    @include span(6 last);
   }
+
+  @media screen and (max-width: $tablet-wide) {
+    @include span(12);
+
+    &:nth-last-child(odd) {
+      @include span(12 last);
+    }
+  }
+
+}
+
+
+
+.half-music {
+  @include span(6);
+  margin-bottom: gutter();
+
+  &:nth-last-child(even) {
+    @include span(6 last);
+  }
+
+  @media screen and (max-width: $tablet-wide) {
+    @include span(12);
+
+    &:nth-last-child(even) {
+      @include span(12 last);
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+.third {
+  @include span(4);
+  margin-bottom: gutter();
+
+  &:last-child {
+    @include span(4 last);
+  }
+
+  @media screen and (max-width: $tablet-wide) {
+    @include span(12);
+
+    &:last-child {
+      @include span(12 last);
+    }
+  }
+
+}
+
+
+.quarter {
+  @include span(3);
+  margin-bottom: gutter();
+
+  &:last-child {
+    @include span(3 last);
+  }
+
+
+  @media screen and (max-width: $tablet-wide) {
+    @include span(6);
+
+    &:nth-child(2) {
+      @include span(6 last);
+    }
+
+    &:last-child {
+      @include span(6 last);
+    }
+  }
+
+
+  @media screen and (max-width: $mobile-wide) {
+    @include span(12);
+
+    &:nth-child(2) {
+      @include span(12 last);
+    }
+
+    &:last-child {
+      @include span(12 last);
+    }
+  }
+
+}
+
+
+.fifth {
+  @include span(2.4);
+  margin-bottom: gutter();
+
+  &:last-child {
+    @include span(2.4 last);
+  }
+
+}
+
+
+.sixth {
+  @include span(2);
+  margin-bottom: gutter();
+  background-color: grey;
+  height: 10rem;
+
+  &:last-child {
+    @include span(2 last);
+  }
+
+}
+
+
+.seventh {
+  @include span(1.71428571);
+  margin-bottom: gutter();
+  background-color: orange;
+  height: 8.5rem;
+
+  &:last-child {
+    @include span(1.71428571 last);
+  }
+
+}
+
+
+.eigth {
+  @include span(1.5);
+  margin-bottom: gutter();
+  background-color: yellow;
+  height: 7rem;
+
+  &:last-child {
+    @include span(1.5 last);
+  }
+
+}
+
+
+.ninth {
+  @include span(1.33333333);
+  margin-bottom: gutter();
+  background-color: green;
+  height: 6rem;
+
+  &:last-child {
+    @include span(1.33333333 last);
+  }
+
+}
+
+
+.tenth {
+  @include span(1.2);
+  margin-bottom: gutter();
+  background-color: blue;
+  height: 5rem;
+
+  &:last-child {
+    @include span(1.2 last);
+  }
+
+}
+
+
+.eleventh {
+  @include span(1.09);
+  margin-bottom: gutter();
+  background-color: red;
+  height: 4.5rem;
+
+  &:last-child {
+    @include span(1.09 last);
+  }
+
+}
+
+
+.twelfth {
+  @include span(1);
+  margin-bottom: gutter();
+  background-color: black;
+  height: 4rem;
+
+  &:last-child {
+    @include span(1 last);
+  }
+
 }
 

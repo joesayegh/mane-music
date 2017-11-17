@@ -1,0 +1,28 @@
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+
+.back-to-top {
+    background-color: #000;
+    text-align: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-bottom: 20px;
+}
+
+.back-to-top a {
+    transition: $hover__fast;
+    color: #fff;
+    text-decoration: none;
+}
+
+.back-to-top a:hover {
+    transition: $hover__fast;
+    color: $color_red !important;
+}
+
+.fa-angle-up:hover,
+.fa-angle-down:hover {
+    color: $color_red;
+}

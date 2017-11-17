@@ -1,4 +1,6 @@
-// Smooth Scroll
+/*
+ *  Smooth Scroll
+ */
 
 $(function() {
     $('a[href*="#"]:not([href="#"])').click(function() {
@@ -8,9 +10,10 @@ $(function() {
             if (target.length) {
                 $('html, body').animate({
                     scrollTop: target.offset().top
-                }, 1000);
+                }, 800);
                 return false;
             }
         }
     });
 });
+

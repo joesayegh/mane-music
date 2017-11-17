@@ -1,19 +1,27 @@
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	// margin: 0 0 1.5em 3em;
+	margin-bottom: 1.5em;
 }
 
 ul {
-	list-style: disc;
+	// list-style: disc;
+	list-style: none;
+	padding: 0;
 }
 
 ol {
 	list-style: decimal;
 }
 
+li {
+    padding-bottom: 10px;
+}
+
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	// margin-left: 1.5em;
+	margin-left: 0;
 }
 
 dt {

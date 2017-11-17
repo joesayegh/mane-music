@@ -1,0 +1,6 @@
+/*!
+* FitVids Settings
+*
+*/
+
+$('.video').fitVids();

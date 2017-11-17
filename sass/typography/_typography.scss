@@ -5,7 +5,7 @@ select,
 textarea {
 	color: $color__text-main;
 	font-family: $font__main;
-	font-weight: 300;
+	font-weight: 400;
 	-webkit-font-smoothing: antialiased; // Safari - Fixes the font-weight issue where text is too bold
 	-moz-osx-font-smoothing: grayscale; // Firefox - As above, but for Firefox
 	@include font-size(1);

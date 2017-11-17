@@ -1,0 +1,65 @@
+/*--------------------------------------------------------------
+# Social Media Section
+--------------------------------------------------------------*/
+
+.social-media-section {
+    // background-color: #000;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    // margin-top: -32px;
+    // padding: 32px 0;
+}
+
+/*--- Spacing between Icons ---*/
+
+i {
+    transition: $hover__fast;
+    color: #fff;
+}
+
+i a {
+    transition: $hover__fast;
+    color: #fff;
+}
+
+i a:hover {
+    transition: $hover__fast;
+    color: $color_red;
+}
+// /*--- Official colours of Social Media Icons. ---*/
+
+.social-media-section .fa-facebook-official:hover { color: #3b5998; }
+.social-media-section .fa-twitter:hover {   color: #55acee; }
+.social-media-section .fa-apple:hover { color: #999; }
+.social-media-section .fa-spotify:hover { color: #00e461; }
+.social-media-section .fa-soundcloud:hover { color: #FF6600; }
+.social-media-section .fa-youtube:hover { color: #bb0000; }
+.social-media-section .fa-instagram:hover { color: #125688; }
+
+
+// Fixed Width Icons
+// -------------------------
+
+.fa-fw {
+    width: 64px !important;
+    transition: $hover__fast;
+}
+
+.social-media-section i {
+    font-size: 20px;
+    transition: $hover__fast;
+}
+
+@media screen and (max-width: $mobile-wide) {
+    .social-media-section i {
+        font-size: 20px;
+        transition: $hover__fast;
+    }
+
+    .fa-fw {
+        width: 48px !important;
+        transition: $hover__fast;
+    }
+
+}

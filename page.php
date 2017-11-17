@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages.
+ * The template for displaying all pages
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main">
 
 			<?php
 			while ( have_posts() ) : the_post();
@@ -31,6 +31,38 @@ get_header(); ?>
 			?>
 
 		</main><!-- #main -->
+
+		<!-- ADVANCED CUSTOM FIELDS  -->
+			<?php
+			// check if the flexible content field has rows of data
+			if( have_rows('content') ):
+				// loop through the rows of data
+				while ( have_rows('content') ) : the_row();
+
+					if( get_row_layout() == 'text_block' ):
+						get_template_part( 'partials/acf','text_block');
+					elseif( get_row_layout() == 'text_block_two_columns' ):
+						get_template_part( 'partials/acf','text_block_two_columns');
+					elseif( get_row_layout() == 'hero' ):
+						get_template_part( 'partials/acf','hero');
+					elseif( get_row_layout() == 'social' ):
+						get_template_part( 'partials/acf','social');
+					elseif( get_row_layout() == 'newsletter' ):
+						get_template_part( 'partials/acf','newsletter');
+					elseif( get_row_layout() == 'press' ):
+						get_template_part( 'partials/acf','press');
+					elseif( get_row_layout() == 'music' ):
+						get_template_part( 'partials/acf','music');
+					elseif( get_row_layout() == 'videos' ):
+						get_template_part( 'partials/acf','videos');
+
+					endif;
+				endwhile;
+			else :
+				// no layouts found
+			endif;
+			?>
+
 	</div><!-- #primary -->
 
 <?php

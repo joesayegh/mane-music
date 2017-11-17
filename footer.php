@@ -15,9 +15,13 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'mane-music' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'mane-music' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'mane-music' ), 'mane-music', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+
+			<div class="back-to-top">
+				<a href="#back-to-top"><i class="fa fa-angle-up fa-3x"></i><br>
+				Back to top</a>
+			</div>
+
+			<a href="<?php echo esc_url( __( 'http://mane-music.com' ) ); ?>"><?php printf( esc_html__( ' Copyright © 2017 ' ) ); ?></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
